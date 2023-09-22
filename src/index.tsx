@@ -1,18 +1,16 @@
 import {render} from 'react-dom';
 import React from 'react'
-import {App} from "./App";
+import {App} from "./app/App";
 import {BrowserRouter} from "react-router-dom";
-import {ThemeProvider} from "./theme/ThemeProvider";
-
-
-//document.body.innerHTML = `<div style="background: red">HELLO WORLD</div>`;
+import {ThemeProvider} from "./app/providers/ThemeProvider";
+//import "./shared/config/i18n/i18n";
+ 
 render(
-    <div>
-        <BrowserRouter>
-            <ThemeProvider>
-                <App/>
-            </ThemeProvider>
-        </BrowserRouter>
-    </div>,
+    <BrowserRouter>
+        <ThemeProvider>
+            <App/>
+        </ThemeProvider>
+    </BrowserRouter>
+    ,
     document.getElementById('root')
 );
