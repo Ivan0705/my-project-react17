@@ -30,8 +30,5 @@ i18n
         }
     });
 
-
-
-// @ts-ignore
 export default i18n;
 

@@ -10,9 +10,8 @@ module.exports = {
         "SharedArrayBuffer": "readonly",
         "__IS_DEV__": true
     },
-
     "parserOptions": {
-        "ecmaVersion": 6,
+        "ecmaVersion": 8,
         "ecmaFeatures": {
             "experimentalObjectRestSpread": true
         },
@@ -21,7 +20,7 @@ module.exports = {
     "plugins": [
         "react"
     ],
-    "parser": "babel-eslint",
+    "parser": '@typescript-eslint/parser',
     "rules": {
         'react/jsx-indent': [2, 4],
         'react/jsx-indent-props': [2, 4],
@@ -38,5 +37,7 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
+        'no-empty': 'warn',
+        'no-cond-assign': ['error', 'always']
     },
 };
