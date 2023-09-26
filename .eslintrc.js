@@ -1,10 +1,10 @@
 module.exports = {
     "env": {
         "browser": true,
-        "es6": true
+        "es6": true,
+        "jest": true
     },
-    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"]
-    ,
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
@@ -18,7 +18,9 @@ module.exports = {
         "sourceType": 'module',
     },
     "plugins": [
-        "react"
+        "react",
+        "i18next",
+        "@typescript-eslint"
     ],
     "parser": '@typescript-eslint/parser',
     "rules": {
@@ -39,5 +41,5 @@ module.exports = {
         'no-underscore-dangle': 'off',
         'no-empty': 'warn',
         'no-cond-assign': ['error', 'always']
-    },
+    }
 };
