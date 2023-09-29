@@ -40,6 +40,7 @@ module.exports = {
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
         'no-empty': 'warn',
-        'no-cond-assign': ['error', 'always']
+        'no-cond-assign': ['error', 'always'],
+        'max-len': ['error', {ignoreComments: true}]
     }
 };

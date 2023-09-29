@@ -1,7 +1,7 @@
 import * as React from "react";
 import {ButtonHTMLAttributes, FC} from "react";
-import {classNames} from "../lib/classNames/classNames";
-import cls from "../ThemeSwitcher/ui/ThemeSwitcher.module.scss";
+import {classNames} from "../../lib/classNames/classNames";
+import cls from "../../ThemeSwitcher/ui/ThemeSwitcher.module.scss";
 
 export enum ThemeButton {
     CLEAR = 'clear'

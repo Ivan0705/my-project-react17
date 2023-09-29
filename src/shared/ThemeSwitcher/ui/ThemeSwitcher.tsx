@@ -1,6 +1,6 @@
 import * as React from "react";
 import {Theme, useTheme} from "../../../app/providers/ThemeProvider";
-import {Button, ThemeButton} from "../../Button/Button";
+import {Button, ThemeButton} from "../../ui/Button/Button";
 import {classNames} from "../../lib/classNames/classNames";
 import cls from './ThemeSwitcher.module.scss'
 import LightIcon from 'shared/assets/icons/theme-light.svg';

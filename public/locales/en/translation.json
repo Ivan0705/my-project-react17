@@ -1,6 +1,10 @@
 {
   "Язык": "English",
   "Тестовый перевод": "Test translation",
-  "Перевод": "Translate"
-
+  "Перевод": "Translate",
+  "Страница не найдена": "Page not found",
+  "Идет загрузка": "Loading",
+  "Произошла непредвиденная ошибка": "Error",
+  "Обновить страницу": "Update page",
+  "throw error": "throw error"
 }
