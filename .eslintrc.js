@@ -4,7 +4,7 @@ module.exports = {
         "es6": true,
         "jest": true
     },
-    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+    "extends": ['eslint:recommended', 'plugin:@typescript-eslint/recommended', 'plugin:storybook/recommended', 'plugin:storybook/recommended'],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
