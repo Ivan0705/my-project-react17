@@ -5,6 +5,7 @@ import cls from './Siderbar.module.scss'
 import {ThemeSwitcher} from "../../../shared/ThemeSwitcher";
 import {LangSwitcher} from "../../../shared/LangSwitcher/LangSwitcher";
 import {Button} from "../../../shared/ui/Button/Button";
+import {useTranslation} from "react-i18next";
 
 interface SiderbarProps {
     className?: string
@@ -12,6 +13,8 @@ interface SiderbarProps {
 
 export const Siderbar = ({className}: SiderbarProps) => {
     const [collapsed, setCollapsed] = useState(false);
+
+    const {t} = useTranslation();
 
     const onToggle = () => {
         setCollapsed((prev) => !prev);
@@ -24,7 +27,7 @@ export const Siderbar = ({className}: SiderbarProps) => {
             <Button
                 data-testid='siderbar-toggle'
                 onClick={onToggle}>
-                toggle
+                {t('Переключить')}
             </Button>
             <div className={cls.switchers}>
                 <ThemeSwitcher/>
