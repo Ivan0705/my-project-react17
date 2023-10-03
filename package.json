@@ -43,6 +43,7 @@
     "webpack-cli": "^4.9.2"
   },
   "devDependencies": {
+    "loki": "0.24.0",
     "@babel/core": "^7.22.20",
     "@babel/eslint-parser": "^7.5.4",
     "@babel/plugin-syntax-jsx": "^7.22.5",
@@ -93,5 +94,20 @@
   "moduleDirectories": [
     "node_modules",
     "src"
-  ]
+  ],
+  "loki": {
+    "configurations": {
+      "chrome.laptop": {
+        "target": "chrome.docker",
+        "width": 1366,
+        "height": 768,
+        "deviceScaleFactor": 1,
+        "mobile": false
+      },
+      "chrome.iphone7": {
+        "target": "chrome.docker",
+        "preset": "iPhone 7"
+      }
+    }
+  }
 }
