@@ -1,5 +1,5 @@
 import {Meta, StoryObj} from '@storybook/react';
-import {Button, ThemeButton} from './Button';
+import {Button, ButtonTheme} from './Button';
 import './Button.module.scss';
 import * as React from "react";
 
@@ -38,14 +38,14 @@ export const Clear: Story = {
     ],
     args: {
         children: 'Text',
-        theme: ThemeButton.CLEAR,
+        theme: ButtonTheme.CLEAR,
     },
 };
 
 export const Outlined: Story = {
     args: {
         children: 'Text',
-        theme: ThemeButton.OUTLINE
+        theme: ButtonTheme.OUTLINE
     },
 };
 

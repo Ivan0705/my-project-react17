@@ -1,17 +1,17 @@
 import {Siderbar} from "widgets/Siderbar/ui/Siderbar";
 import {fireEvent, screen} from "@testing-library/react";
 import React from "react";
-import {renderWithTranslation} from "../../../shared/lib/tests/renderWithTranslation/renderWithTranslation";
+import {componentRender} from "../../../shared/lib/tests/componentRender/componentRender";
 
 
 describe('Siderbar', () => {
     test('with first param', () => {
-        renderWithTranslation(<Siderbar/>);
+        componentRender(<Siderbar/>);
         expect(screen.getByTestId('siderbar')).toBeInTheDocument();
     });
 
     test('test toggle', () => {
-        renderWithTranslation(<Siderbar/>);
+        componentRender(<Siderbar/>);
 
         const toggleBtn = screen.getByTestId('siderbar-toggle');
         const siderbar = screen.getByTestId('siderbar');
@@ -20,4 +20,5 @@ describe('Siderbar', () => {
         fireEvent.click(toggleBtn);
         expect(siderbar).toHaveClass('collapsed');
     });
+
 });

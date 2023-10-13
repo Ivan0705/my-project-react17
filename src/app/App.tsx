@@ -9,11 +9,7 @@ import {Siderbar} from "../widgets/Siderbar";
 
 export const App = () => {
     const {theme} = useTheme();
-    /*
-        useEffect(() => {
-            throw new Error()
-        }, []);
-    */
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <Suspense fallback="">

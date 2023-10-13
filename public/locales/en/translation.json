@@ -6,5 +6,11 @@
   "Идет загрузка": "Loading",
   "Произошла непредвиденная ошибка": "Error",
   "Обновить страницу": "Update page",
-  "throw error": "throw error"
+  "throw error": "throw error",
+  "Короткий язык": "En",
+  "О сайте": "About us",
+  "Главная страница": "Main page",
+  "Войти": "Login in",
+  "Прибавить": "Increment",
+  "Убавить": "Decrement"
 }

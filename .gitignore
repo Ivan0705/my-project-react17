@@ -6,3 +6,4 @@ config/jest/
 extractedTranslations/
 src/entries/
 src/features/
+src/shared/Page/
