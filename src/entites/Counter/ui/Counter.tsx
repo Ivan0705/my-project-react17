@@ -25,7 +25,7 @@ export const Counter = () => {
             <Button data-testid="increment-btn" onClick={increment}
                     theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Прибавить')}</Button>
             <Button data-testid="decrement-btn" onClick={decrement}
-                    theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Убавить')}Decrement</Button>
+                    theme={ButtonTheme.BACKGROUND_INVERTED}>{t('Убавить')}</Button>
         </div>)
 
 
