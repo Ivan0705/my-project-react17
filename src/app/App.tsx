@@ -1,14 +1,22 @@
-import React, {Suspense} from "react";
+import React, {Suspense, useEffect} from "react";
 import './styles/index.scss'
 import {classNames} from "shared/lib/classNames/classNames";
 import {useTheme} from "./providers/ThemeProvider";
 import {AppRouter} from "./providers/router";
 import {Navbar} from "../widgets/Navbar";
 import {Siderbar} from "../widgets/Siderbar";
+import {useDispatch, useSelector} from "react-redux";
+
+import {getUserAuthData, userActions} from "entites/User";
 
 
 export const App = () => {
     const {theme} = useTheme();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(userActions.initAuthData());
+    }, [dispatch]);
 
     return (
         <div className={classNames('app', {}, [theme])}>

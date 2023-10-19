@@ -4,6 +4,4 @@ node_modules
 config/eslint/
 config/jest/
 extractedTranslations/
-src/entries/
-src/features/
-src/shared/Page/
+

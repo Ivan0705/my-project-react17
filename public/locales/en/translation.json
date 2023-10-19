@@ -12,5 +12,10 @@
   "Главная страница": "Main page",
   "Войти": "Login in",
   "Прибавить": "Increment",
-  "Убавить": "Decrement"
+  "Убавить": "Decrement",
+  "Введите username": "Enter username",
+  "Введите пароль": "Enter password",
+  "Форма авторизации": "auth form",
+  "Вы ввели неверный логин или пароль": "Uncorrect username or password",
+  "Выйти": "Login out"
 }
