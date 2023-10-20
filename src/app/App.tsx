@@ -5,9 +5,9 @@ import {useTheme} from "./providers/ThemeProvider";
 import {AppRouter} from "./providers/router";
 import {Navbar} from "../widgets/Navbar";
 import {Siderbar} from "../widgets/Siderbar";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
-import {getUserAuthData, userActions} from "entites/User";
+import {userActions} from "entites/User";
 
 
 export const App = () => {

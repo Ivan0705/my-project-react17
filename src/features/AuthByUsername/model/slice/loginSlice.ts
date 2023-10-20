@@ -1,4 +1,4 @@
-import {LoginSchema} from "../types/LoginSchema";
+import {LoginSchema} from "../..";
 import {createSlice} from "@reduxjs/toolkit";
 import {PayloadAction} from "@reduxjs/toolkit/dist/createAction";
 import {loginByUsername} from "../services/loginByUsername/loginByUsername";
@@ -27,7 +27,7 @@ export const loginSlice = createSlice({
                 state.isLoading = true;
             }
         )
-            .addCase(loginByUsername.fulfilled, (state, action) => {
+            .addCase(loginByUsername.fulfilled, (state) => {
                 state.isLoading = false;
             })
             .addCase(loginByUsername.rejected, (state, action) => {
