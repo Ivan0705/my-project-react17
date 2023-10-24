@@ -4,13 +4,14 @@ import {counterReducer} from "../../../../entites";
 import {userReducer} from "entites/User";
 import {createReducerManager} from "./reducerManager";
 import {loginReducer} from "features/AuthByUsername";
-
+import {profileReducer} from "entites/Profile";
 
 export function createReduxStore(initialState?: StateSchema) {
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
         loginForm: loginReducer,
+        profile: profileReducer
     };
     const reducerManager = createReducerManager(rootReducers);
 
@@ -26,3 +27,4 @@ export function createReduxStore(initialState?: StateSchema) {
     return store;
 }
 
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

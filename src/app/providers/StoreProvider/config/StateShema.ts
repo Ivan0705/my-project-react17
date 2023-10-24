@@ -3,12 +3,15 @@ import {UserSchema} from "../../../../entites/User";
 import {LoginSchema} from "../../../../features/AuthByUsername";
 import {AnyAction, CombinedState, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
 import {EnhancedStore} from "@reduxjs/toolkit/dist/configureStore";
-//import {ReducersList} from "../../../../shared/config/components/DynamicModuleLoader/DynamicModuleLoader";
+import {ProfileSchema} from "../../../../entites/Profile";
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
     loginForm: LoginSchema,
+    profile: ProfileSchema
+
+
 }
 
 export type StateSchemaK = keyof StateSchema;

@@ -36,6 +36,14 @@
     }
   ],
   "profile": {
-    "name": "typicode"
+    "first": "Иван",
+    "lastname": "Вишневский",
+    "age": 31,
+    "currency": "RUB",
+    "country": "Russia",
+    "city": "Novosibirsk",
+    "username": "admin",
+    "name": "typicode",
+    "avatar": "ava.jpg"
   }
 }

@@ -20,14 +20,15 @@ import {
 
 
 export interface LoginFormProps {
-    className?: string
+    className?: string,
+    onSuccess: () => void;
 }
 
 const initialReducers: ReducersList = {
     loginForm: loginReducer
 };
 
-export const LoginForm = memo(({className}: LoginFormProps) => {
+export const LoginForm = memo(({className, onSuccess}: LoginFormProps) => {
     const {t} = useTranslation();
     const dispatch = useDispatch();
 
@@ -44,10 +45,14 @@ export const LoginForm = memo(({className}: LoginFormProps) => {
         dispatch(loginActions.setUsername(value))
     }, [dispatch]);
 
-    const onLoginClick = useCallback(() => {
+    const onLoginClick = useCallback(async () => {
         // @ts-ignore
-        dispatch(loginByUsername({username, password}));
-    }, [dispatch, username, password]);
+        const result = await dispatch(loginByUsername({username, password}));
+
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, username, password]);
 
     return (
         <DynamicModuleLoader

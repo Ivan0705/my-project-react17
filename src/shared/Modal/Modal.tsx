@@ -1,5 +1,5 @@
 import * as React from "react";
-import {ReactNode, useCallback, useEffect, useRef, useState} from "react";
+import {memo, ReactNode, useCallback, useEffect, useRef, useState} from "react";
 import {useTheme} from "../../app/providers/ThemeProvider";
 import {classNames} from "../lib/classNames/classNames";
 import cls from './Modal.module.scss'
@@ -14,7 +14,7 @@ interface ModalProps {
 }
 
 const ANIMATION_DELAY = 300;
-export const Modal = (props: ModalProps) => {
+export const Modal = memo((props: ModalProps) => {
     const {className, children, isOpen, onClose, lazy} = props;
 
     const [isMounted, setIsMounted] = useState(false);
@@ -80,4 +80,4 @@ export const Modal = (props: ModalProps) => {
             </div>
         </Portal>
     )
-};
+});
