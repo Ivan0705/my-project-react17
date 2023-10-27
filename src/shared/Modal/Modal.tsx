@@ -1,5 +1,5 @@
 import * as React from "react";
-import {memo, ReactNode, useCallback, useEffect, useRef, useState} from "react";
+import {memo, MutableRefObject, ReactNode, useCallback, useEffect, useRef, useState} from "react";
 import {useTheme} from "../../app/providers/ThemeProvider";
 import {classNames} from "../lib/classNames/classNames";
 import cls from './Modal.module.scss'
@@ -20,13 +20,14 @@ export const Modal = memo((props: ModalProps) => {
     const [isMounted, setIsMounted] = useState(false);
     const [isClosing, setIsClosing] = useState(false);
     const {theme} = useTheme();
+    const timerRef = useRef() as MutableRefObject<ReturnType<typeof setTimeout>>;
 
     useEffect(() => {
         if (isOpen) {
             setIsMounted(true)
         }
     }, [isOpen]);
-    const mods: Record<string, boolean> = {
+    const mods: Record<string, boolean | undefined> = {
         [cls.opened]: isOpen,
         [cls.isClosing]: isClosing
     };
@@ -56,9 +57,6 @@ export const Modal = memo((props: ModalProps) => {
             window.removeEventListener('keydown', onKeyDown)
         }
     }, [isOpen, onKeyDown]);
-
-
-    const timerRef = useRef<ReturnType<typeof setTimeout>>();
 
 
     const onContentClick = (e: React.MouseEvent) => {

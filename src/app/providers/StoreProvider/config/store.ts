@@ -1,27 +1,46 @@
-import {configureStore, ReducersMapObject} from "@reduxjs/toolkit";
-import {StateSchema} from "./StateShema";
+import {CombinedState, configureStore, Reducer, ReducersMapObject} from "@reduxjs/toolkit";
+import {StateSchema, ThunkExtraArg} from "./StateShema";
 import {counterReducer} from "../../../../entites";
 import {userReducer} from "entites/User";
 import {createReducerManager} from "./reducerManager";
 import {loginReducer} from "features/AuthByUsername";
 import {profileReducer} from "entites/Profile";
+import {$api} from "../../../../shared/api/api";
+import {To} from "history";
+import {NavigateOptions} from "react-router-dom";
 
-export function createReduxStore(initialState?: StateSchema) {
+export function createReduxStore(initialState?: StateSchema,
+                                 navigate?: (to: To, options?: NavigateOptions) => void) {
+
     const rootReducers: ReducersMapObject<StateSchema> = {
         counter: counterReducer,
         user: userReducer,
         loginForm: loginReducer,
-        profile: profileReducer
+        profile: profileReducer as any,
     };
     const reducerManager = createReducerManager(rootReducers);
 
-    const store = configureStore<StateSchema>({
-        reducer: reducerManager.reduce,
+
+    const extraArg: ThunkExtraArg = {
+        api: $api,
+        navigate
+    };
+
+    const store: any = configureStore({
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
-        preloadedState: initialState
+        preloadedState: initialState,
+
+        middleware: getDefaultMiddleware => getDefaultMiddleware({
+            thunk: {
+                extraArgument: {
+                    api: $api,
+                    navigate,
+                }
+            }
+        })
     });
 
-    // @ts-ignore
     store.reducerManager = reducerManager;
 
     return store;

@@ -7,15 +7,14 @@ import "./shared/config/i18n/i18n";
 import {ErrorBoundary} from "./app/providers/ErrorBoundary";
 import {StoreProvider} from "./app/providers/StoreProvider";
 
-render(
-    <StoreProvider initialState={undefined}>
-        <BrowserRouter>
+render(<BrowserRouter>
+        <StoreProvider initialState={undefined}>
             <ErrorBoundary>
                 <ThemeProvider>
                     <App/>
                 </ThemeProvider>
             </ErrorBoundary>
-        </BrowserRouter>
-    </StoreProvider>,
+        </StoreProvider>
+    </BrowserRouter>,
     document.getElementById('root')
 );

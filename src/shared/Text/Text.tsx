@@ -12,7 +12,7 @@ interface TextProps {
     className?: string;
     text?: string,
     title?: string,
-    theme?: TextTheme,
+    theme?: TextTheme | undefined,
 }
 
 export const Text = memo((props: TextProps) => {
@@ -20,11 +20,11 @@ export const Text = memo((props: TextProps) => {
         className,
         text,
         title,
-        theme,
+        theme=TextTheme.PRIMARY,
 
     } = props;
     return (
-        <div className={classNames(cls.Text, {[cls[theme]]: true}, [className])}>
+        <div className={classNames(cls.Text, {[cls[theme]]: true }, [className])}>
             {title && <p className={cls.title}>{title}</p>}
             {text && <p className={cls.text}>{text}</p>}
         </div>
