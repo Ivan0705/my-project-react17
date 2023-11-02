@@ -16,9 +16,14 @@
   "Введите username": "Enter username",
   "Введите пароль": "Enter password",
   "Форма авторизации": "auth form",
-  "Вы ввели неверный логин или пароль": "Uncorrect username or password",
+  "Вы ввели неверный логин или пароль": "Incorrect username or password",
   "Выйти": "Login out",
   "Профиль": "Profile",
   "Указать валюту": "Select currency",
-  "Укажите страну": "Select country"
+  "Укажите страну": "Select country",
+  "Серверная ошибка при сохранении": "Server error",
+  "Данные не указаны": "No data",
+  "Некорректный регион": "Incorrect country",
+  "Имя и фамилия обязательны": "Incorrect user data",
+  "Некорректный возраст": "Incorrect age"
 }

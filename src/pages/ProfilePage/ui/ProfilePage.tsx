@@ -12,6 +12,7 @@ import {
     getProfileForm,
     getProfileIsLoading,
     getProfileReadonly,
+    getProfileValidateErrors,
     profileActions,
     ProfileCard,
     profileReducer
@@ -22,6 +23,10 @@ import {useSelector} from "react-redux";
 import {ProfilePageHeader} from "./ProfilePageHeader/ProfilePageHeader";
 import {Currency} from "../../../entites/Currency";
 import {Country} from "entites/Country";
+import {Text, TextTheme} from "../../../shared/Text/Text";
+import {ValidateProfileError} from "../../../entites/Profile/model/types/profile";
+import {useTranslation} from "react-i18next";
+
 
 const reducers: ReducersList = {
     profile: profileReducer,
@@ -38,6 +43,16 @@ export const ProfilePage = ({className}: ProfilePageProps) => {
     const isLoading = useSelector(getProfileIsLoading);
     const readonly = useSelector(getProfileReadonly);
     const profileForm = useSelector(getProfileForm);
+    const validateErrors = useSelector(getProfileValidateErrors);
+    const {t} = useTranslation();
+
+    const validateErrorTranslate = {
+        [ValidateProfileError.SERVER_ERROR]: t('Серверная ошибка при сохранении'),
+        [ValidateProfileError.NO_DATA]: t('Данные не указаны'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('Некорректный регион'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('Имя и фамилия обязательны'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Некорректный возраст'),
+    };
 
     useEffect(() => {
         dispatch(fetchProfileData())
@@ -75,10 +90,17 @@ export const ProfilePage = ({className}: ProfilePageProps) => {
         dispatch(profileActions.updateProfile({country}))
     }, [dispatch]);
 
+
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames(cls.ProfilePage, {}, [className])}>
                 <ProfilePageHeader/>
+                {validateErrors?.length && validateErrors?.map(err =>
+                    <Text
+                        key={err}
+                        theme={TextTheme.ERROR}
+                        text={validateErrorTranslate[err]}/>
+                )}
                 <ProfileCard
                     data={profileForm}
                     error={error}
@@ -93,7 +115,6 @@ export const ProfilePage = ({className}: ProfilePageProps) => {
                     onChangeCountry={onChangeCountry}
                     readonly={readonly}
                 />
-
             </div>
         </DynamicModuleLoader>
     )

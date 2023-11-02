@@ -1,3 +1,5 @@
+export {getProfileValidateErrors} from "./model/selectors/getProfileValidateErrors/getProfileReadonly";
+
 export {updateProfileData} from "./model/services/updateProfileData/updateProfileData";
 
 export {getProfileForm} from "./model/selectors/getProfileForm/getProfileForm";
@@ -19,4 +21,3 @@ export {ProfileCard} from "./ui/ProfileCard/ProfileCard";
 export {fetchProfileData} from "./model/services/fetchProfileData/fetchProfileData";
 
 export {Profile, ProfileSchema} from "./model/types/profile";
-
