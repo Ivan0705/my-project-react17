@@ -7,6 +7,7 @@ import {ProfileSchema} from "../../../../entites/Profile";
 import {AxiosInstance} from "axios";
 import {To} from 'history'
 import {NavigateOptions} from "react-router-dom";
+import {S} from "@storybook/react/dist/types-0a347bb9";
 
 export interface StateSchema {
     counter: CounterSchema,
@@ -37,6 +38,9 @@ export interface ThunkExtraArg {
 
 export interface ThunkConfig<T> {
     rejectValue?: T;
-    extra?: ThunkExtraArg;
+    extra?: ThunkExtraArg | unknown;
     dispatch?: Dispatch;
+    state?: StateSchema | unknown;
+    getState?:() => S;
+
 }

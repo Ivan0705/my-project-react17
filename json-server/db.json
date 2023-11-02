@@ -39,11 +39,11 @@
     "first": "Иван",
     "lastname": "Вишневский",
     "age": 31,
-    "currency": "RUB",
-    "country": "Russia",
+    "currency": "USD",
+    "country": "FRANCE",
     "city": "Novosibirsk",
     "username": "admin",
     "name": "typicode",
-    "avatar": "ava.jpg"
+    "avatar": "https://icdn.bolshayastrana.com/940x00/dc/b8/dcb8a264eac23900a1f128faae5508dd.jpeg"
   }
 }
