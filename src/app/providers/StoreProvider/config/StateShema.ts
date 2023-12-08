@@ -8,12 +8,16 @@ import {AxiosInstance} from "axios";
 import {To} from 'history'
 import {NavigateOptions} from "react-router-dom";
 import {S} from "@storybook/react/dist/types-0a347bb9";
+import {ArticleDetailsSchema} from "../../../../entites/Article/model/types/articleDetailsSchema";
+import {ArticleDetailsCommentsSchema} from "../../../../pages/ArticleDetailsPage";
 
 export interface StateSchema {
     counter: CounterSchema,
     user: UserSchema,
     loginForm: LoginSchema,
-    profile: ProfileSchema
+    profile: ProfileSchema,
+    articleDetails?: ArticleDetailsSchema,
+    articleDetailsComments?: ArticleDetailsCommentsSchema
 }
 
 export type StateSchemaK = keyof StateSchema;
@@ -35,10 +39,9 @@ export interface ThunkExtraArg {
 }
 
 export interface ThunkConfig<T> {
-    rejectValue?: T;
-    extra?: ThunkExtraArg | unknown;
+    rejectValue: T;
+    extra: ThunkExtraArg | unknown;
     dispatch?: Dispatch;
-    state?: StateSchema | unknown;
-    getState?:() => S;
-
+    state: StateSchema | unknown;
+    getState?: () => S;
 }
